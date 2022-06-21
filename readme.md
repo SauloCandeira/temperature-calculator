@@ -8,8 +8,6 @@ Sistema que solicita a quantidade de inputs e após a inserção dos dados calcu
 flowchart LR
 B[Index]
 
-B --> C{Project}
-
 C --> D{Templates}
 D --> E[Product]
 D --> F[MarketPlace]
