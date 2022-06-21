@@ -13,6 +13,7 @@
     <div id="demo"></div>
     <input type="submit" onclick="capturar()" value="Enviar">
     <h3>Valores digitados enviados: <p id="valorDigitado"></p> </h3> 
+    <h3>Valores digitados ordenados: <p id="valorOrdenado"></p> </h3> 
     <h3>Media: <p id="media"></p></h3> 
     <h3>Mediana: <p id="mediana"></p></h3> 
 </body>
@@ -88,6 +89,7 @@
         }
         console.log('Mediana :',mediana)
         document.getElementById("mediana").innerHTML = mediana;
+        document.getElementById('valorOrdenado').innerHTML = auxResult.sort()
         
     }
 
