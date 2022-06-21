@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processo seletivo - Pegasus</title>
+</head>
+
+<body>
+    <h1> Calculadora de Temperaturas</h1>
+    <div id="demo"></div>
+    <input type="submit" onclick="capturar()" value="Enviar">
+    <p id="valorDigitado"></p>
+    <h3><p id="media"></p></h3>
+    <h3><p id="mediana"></p></h3>
+</body>
+<script type="text/javascript">
+    // Variável
+    var quantidade, conteudo = "", capturando = "", media = 0;
+    //Prompt
+    quantidade = prompt("Informe a quantidade de temperatura: ");
+    quantidade = eval(quantidade);
+    //Percorendo indice de input
+    conteudo = currentInput(quantidade);
+    //Exibindo input
+    document.getElementById("demo").innerHTML = conteudo;
+
+    function capturar () {
+        let auxResult = [];
+
+        // Percorrendo array e adicionando valores
+        for (let index = 0; index < quantidade; index++) {
+            auxResult.push(document.querySelector(`#temperatura${index}`).value);
+            document.getElementById('valorDigitado').innerHTML = auxResult
+
+        };
+        console.log('Temperaturas digitadas :', auxResult)
+        console.log('Ordenação :', auxResult.sort())
+
+        // calcular media
+        for(var b = 0; b < auxResult.length; b++){
+            media += parseInt(auxResult[b])/quantidade;
+            document.getElementById("media").innerHTML = media;
+        };
+        console.log('Media :', media)
+
+        // Calcular mediana
+        function calcularMediaAritmetica(lista) {
+        const sumaLista = lista.reduce(
+            function (valorAcumulado = 0, nuevoElemento) {
+            return valorAcumulado + nuevoElemento;
+            }
+        );
+
+        const promedioLista = sumaLista / lista.length;
+        console.log('Esse é o promedioLista', promedioLista)
+
+        return promedioLista;
+        }
+        const mitadLista1 = parseInt(auxResult.sort().length / 2);
+
+        console.log('Esse é o mitadList1 :', mitadLista1)
+
+        function esPar(numerito) {
+        if (numerito % 2 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+        }
+
+        let mediana;
+
+        if (esPar(auxResult.sort().length)) {
+        const elemento1 = auxResult.sort()[mitadLista1 - 1];
+        const elemento2 = auxResult.sort()[mitadLista1];
+
+        const promedioElemento1y2 = calcularMediaAritmetica([
+            elemento1,
+            elemento2,
+        ]);
+        
+        mediana = promedioElemento1y2;
+        } else {
+        mediana = auxResult.sort()[mitadLista1];
+        }
+        console.log('Mediana :',mediana)
+        
+    }
+
+    function currentInput (number,) {
+        let aux = ''
+        for (i = 0; i < number; i++) {
+            aux += ('<input type="number" name="temperatura' + i + '" placeholder="temperatura' + i + '" id="temperatura' + i + '"/> <br>');
+        };
+        console.log('Quantidade de Inputs :', number)
+        //console.log('Esse e o aux :', aux)
+        return aux;
+    }
+
+
+
+</script>
+
+</html>
+
