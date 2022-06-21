@@ -1,6 +1,6 @@
 # Sobre o Projeto:
 
-Sistema que solicita a quantidade de inputs e após a inserção dos dados calcula a media e mediana de temperaturas
+Sistema que solicita a quantidade de inputs e após a inserção dos dados ordena e calcula a media e mediana de temperaturas
 
 ### FLUXOGRAMA/DIAGRAMA
 
