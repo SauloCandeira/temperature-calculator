@@ -7,7 +7,7 @@ Sistema que solicita a quantidade de inputs e após a inserção dos dados calcu
 ```mermaid
 flowchart LR
 
-C[Clone~] --> D{Index}
+C[Clone] --> D{Index}
 D --> E[Prompt]
 D --> F[Console]
 
